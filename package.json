@@ -9,5 +9,10 @@
     "devDependencies": {
         "@microsoft/teamsfx-cli": "1.*"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "easy-react-google-maps": "^1.0.5",
+        "mapbox-gl": "^1.13.3",
+        "react-mapbox-gl": "^5.1.1"
+    }
 }

@@ -5,12 +5,8 @@ import { getListData } from "../../services/listService";
 import { Widget } from "../lib/Widget";
 import { headerContentStyle, headerTextStyle } from "../lib/Widget.styles";
 import {
-  bodyContentStyle,
-  dividerStyle,
-  itemLayoutStyle,
-  itemSubtitleStyle,
-  itemTitleStyle,
-} from "../styles/ListWidget.styles";
+  bodyContentStyle} from "../styles/ListWidget.styles";
+import Mapbox from "./Mapbox ";
 
 /**
  * Extends the Widget class to implement a list widget.
@@ -45,20 +41,7 @@ export class ListWidget extends Widget {
   bodyContent() {
     return (
       <div style={bodyContentStyle()}>
-        {this.state.data &&
-          this.state.data.map((t) => {
-            return (
-              <div key={`${t.id}-div`} style={itemLayoutStyle()}>
-                <div key={`${t.id}-divider`} style={dividerStyle()} />
-                <Text key={`${t.id}-title`} style={itemTitleStyle()}>
-                  {t.title}
-                </Text>
-                <Text key={`${t.id}-content`} style={itemSubtitleStyle()}>
-                  {t.content}
-                </Text>
-              </div>
-            );
-          })}
+      <Mapbox></Mapbox>
       </div>
     );
   }

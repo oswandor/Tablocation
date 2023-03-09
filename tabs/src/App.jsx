@@ -13,8 +13,6 @@ import { useTeamsUserCredential } from "@microsoft/teamsfx-react";
 
 import SampleDashboard from "./views/dashboards/SampleDashboard";
 import Privacy from "./views/Privacy";
-import TabConfig from "./views/TabConfig";
-import TermsOfUse from "./views/TermsOfUse";
 import { TeamsFxContext } from "./internal/context";
 
 /**
@@ -49,10 +47,9 @@ export default function App() {
             <Spinner style={{ margin: 100 }} />
           ) : (
             <>
-              <Route exact path="/privacy" component={Privacy} />
-              <Route exact path="/termsofuse" component={TermsOfUse} />
+              <Route exact path="/privacy" component={Privacy} />    
               <Route exact path="/tab" component={SampleDashboard} />
-              <Route exact path="/config" component={TabConfig} />
+           
             </>
           )}
         </Router>

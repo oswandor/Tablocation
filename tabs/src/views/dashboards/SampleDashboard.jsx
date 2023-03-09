@@ -14,8 +14,7 @@ export default class SampleDashboard extends Dashboard {
   dashboardLayout() {
     return (
       <>
-        <ListWidget />
-        <ChartWidget />
+        <ListWidget/>
       </>
     );
   }
