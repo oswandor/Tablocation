@@ -1,15 +1,16 @@
 
 import React from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature  , Marker,  ZoomControl} from 'react-mapbox-gl';
 import mapboxgl from 'mapbox-gl';
 
 
 
-const Mapbox = () => {
+const Mapbox = ({ coordinates }) => {
     // Inicializa el mapa y configura sus opciones
     mapboxgl.accessToken = 'pk.eyJ1Ijoicm9uYWxvc3dhbGRvMjAyMyIsImEiOiJjbGYwbWk1ODAwN3U3M29wamJybWljMjA3In0.babo1QUmpTuLJHLg2JJdFw';
     const Map = ReactMapboxGl({
       accessToken: mapboxgl.accessToken,
+      logoPosition : 'bottom-right',  
     });
   
     // Define los estilos de los componentes del mapa
@@ -22,22 +23,31 @@ const Mapbox = () => {
       },
     };
   
+    const markerUrl  = "https://cdn-icons-png.flaticon.com/512/2776/2776067.png"; 
     // Renderiza el componente del mapa
     return (
       <Map
         style="mapbox://styles/mapbox/streets-v9"
-        center={[-74.5, 40]}
+        center={coordinates}
         containerStyle={{
           height: '100vh',
           width: '100vw',
         }}
+
+        
+
       >
-        <Layer type="fill" id="ocean" paint={layerStyles.ocean}>
-          <Feature coordinates={[[-180, 90], [-180, -90], [180, -90], [180, 90]]} />
-        </Layer>
-        <Layer type="fill" id="land" paint={layerStyles.land}>
-          <Feature coordinates={[[-180, 90], [-180, -90], [180, -90], [180, 90]]} />
-        </Layer>
+         <Marker coordinates={coordinates} >
+        <img src={markerUrl}  style={{ width:"40" , height:"40" }} />
+      </Marker>
+
+
+
+        <ZoomControl/>
+
+       
+
+
       </Map>
     );
   };

@@ -41,7 +41,7 @@ export class ListWidget extends Widget {
   bodyContent() {
     return (
       <div style={bodyContentStyle()}>
-      <Mapbox></Mapbox>
+      <Mapbox coordinates={[-88.9573,13.7260]}></Mapbox>
       </div>
     );
   }
