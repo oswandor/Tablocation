@@ -37,13 +37,14 @@ const Mapbox = ({ coordinates }) => {
         
 
       >
+           <ZoomControl/>
          <Marker coordinates={coordinates} anchor="center" draggable={false}  >
         <img src={markerUrl}  style={{ width:"40" , height:"40" }} />
       </Marker>
 
 
 
-        <ZoomControl/>
+     
 
        
 
