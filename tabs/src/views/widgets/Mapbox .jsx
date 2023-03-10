@@ -37,7 +37,7 @@ const Mapbox = ({ coordinates }) => {
         
 
       >
-         <Marker coordinates={coordinates} anchor="center" >
+         <Marker coordinates={coordinates} anchor="center" draggable={false}  >
         <img src={markerUrl}  style={{ width:"40" , height:"40" }} />
       </Marker>
 
