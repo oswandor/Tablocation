@@ -1,7 +1,6 @@
 import { Button } from "@fluentui/react-components";
 import { getListData } from "../../services/listService";
 import { Widget } from "../lib/Widget";
-import MapView from "../MapBox";
 import {bodyContentStyle} from "../styles/ListWidget.styles";
 import * as microsoftTeams from "@microsoft/teams-js";
 import Mapbox from "./Mapbox ";
