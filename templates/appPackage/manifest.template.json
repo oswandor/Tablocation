@@ -52,5 +52,8 @@
     ],
     "validDomains": [
         "{{state.fx-resource-frontend-hosting.domain}}"
+    ], 
+    "devicePermissions": [
+        "geolocation"
     ]
 }

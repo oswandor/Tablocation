@@ -4,14 +4,23 @@ import { List28Filled, MoreHorizontal32Regular } from "@fluentui/react-icons";
 import { getListData } from "../../services/listService";
 import { Widget } from "../lib/Widget";
 import { headerContentStyle, headerTextStyle } from "../lib/Widget.styles";
-import {
-  bodyContentStyle} from "../styles/ListWidget.styles";
-import Mapbox from "./Mapbox ";
+import { bodyContentStyle } from "../styles/ListWidget.styles";
+import Mapbox from "./Mapbox";
 
 /**
  * Extends the Widget class to implement a list widget.
  */
 export class ListWidget extends Widget {
+  constructor(props) {
+    super(props);
+    this.state = {
+      coordinates: [-88.9573, 13.7260],
+      zoom :[11]
+    };
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+  }
+
+
   /**
    * Get data required by the widget, you can get data from a api call or static data stored in a file.
    * @returns The data required by the widget to render.
@@ -41,7 +50,7 @@ export class ListWidget extends Widget {
   bodyContent() {
     return (
       <div style={bodyContentStyle()}>
-      <Mapbox coordinates={[-88.9573,13.7260]}></Mapbox>
+        <Mapbox coordinates={this.state.coordinates} zoom={this.state.zoom} />
       </div>
     );
   }
@@ -55,10 +64,29 @@ export class ListWidget extends Widget {
       <Button
         appearance="primary"
         size="medium"
-        onClick={() => {}} // navigate to detailed page
+        onClick={this.handleButtonClick}
       >
-        View Details
+        Obtener Ubicacion
       </Button>
     );
+  }
+ 
+  handleButtonClick() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(position.coords.longitude +  " " + position.coords.longitude)
+          this.setState({
+            coordinates: [position.coords.longitude,position.coords.latitude ],
+            zoom:[18] 
+          });
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }
 }
