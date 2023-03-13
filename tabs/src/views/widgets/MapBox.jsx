@@ -22,8 +22,8 @@ const Mapbox = ({ coordinates,zoom }) => {
         zoom={[zoom]}
         center={coordinates}
         containerStyle={{
-          height: '100vh',
-          width: '100vw',
+          height: '500px',
+          width: '500px',
         }}
       >
          <Marker coordinates={coordinates} anchor="center" draggable={false}  >

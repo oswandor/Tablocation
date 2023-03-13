@@ -85,6 +85,8 @@ export class ListWidget extends Widget {
         },
         (error) => {
           console.error(error);
+        } ,   {
+          enableHighAccuracy: true
         }
       );
 
