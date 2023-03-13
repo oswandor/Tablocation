@@ -18,9 +18,12 @@ export class ListWidget extends Widget {
       zoom :[11]
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
+
+    console.log(this.state.coordinates) 
+
   }
 
-
+  
   /**
    * Get data required by the widget, you can get data from a api call or static data stored in a file.
    * @returns The data required by the widget to render.
@@ -75,7 +78,6 @@ export class ListWidget extends Widget {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.longitude +  " " + position.coords.longitude)
           this.setState({
             coordinates: [position.coords.longitude,position.coords.latitude ],
             zoom:[18] 
@@ -85,6 +87,8 @@ export class ListWidget extends Widget {
           console.error(error);
         }
       );
+
+      console.log(this.state.coordinates) 
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
